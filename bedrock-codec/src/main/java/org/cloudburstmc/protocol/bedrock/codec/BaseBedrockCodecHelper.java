@@ -527,7 +527,7 @@ public abstract class BaseBedrockCodecHelper implements BedrockCodecHelper {
     }
 
     protected ImageData readImage(ByteBuf buffer) {
-        return this.readImage(buffer, ImageData.SKIN_PERSONA_SIZE);
+        return this.readImage(buffer, ImageData.FIFTY_MEGABYTES);
     }
 
     protected ImageData readImage(ByteBuf buffer, int maxSize) {

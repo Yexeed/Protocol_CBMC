@@ -33,12 +33,12 @@ public class BedrockCodecHelper_v388 extends BedrockCodecHelper_v361 {
     public SerializedSkin readSkin(ByteBuf buffer) {
         String skinId = this.readString(buffer);
         String skinResourcePatch = this.readString(buffer);
-        ImageData skinData = this.readImage(buffer, ImageData.SKIN_PERSONA_SIZE);
+        ImageData skinData = this.readImage(buffer, ImageData.FIFTY_MEGABYTES);
 
         List<AnimationData> animations = new ObjectArrayList<>();
         this.readArray(buffer, animations, ByteBuf::readIntLE, (b, h) -> this.readAnimationData(b));
 
-        ImageData capeData = this.readImage(buffer, ImageData.SINGLE_SKIN_SIZE);
+        ImageData capeData = this.readImage(buffer, ImageData.FIFTY_MEGABYTES);
         String geometryData = this.readStringMaxLen(buffer, 1024 * 256); // Allow larger geometry data
         String animationData = this.readString(buffer);
         boolean premium = buffer.readBoolean();
